@@ -1,0 +1,19 @@
+version: '3'
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: ac_rabbitmq
+    ports:
+      # expose admin panel port
+      - "15672:15672"
+    volumes:
+      - "./load_definitions.conf:/etc/rabbitmq/conf.d/load_definitions.conf"
+      - "./definitions.json:/etc/rabbitmq/definitions.json"
+
+  consumer:
+    build:
+      context: .
+    image: php_worker
+    container_name: ac_crm
+    volumes:
+      - "./:/var/www/html/app"
