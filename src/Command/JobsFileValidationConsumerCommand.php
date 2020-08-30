@@ -69,13 +69,12 @@ class JobsFileValidationConsumerCommand extends Command
         $io->comment('Message content:');
         $io->table(array_keys($messageBody), [array_values($messageBody)]);
 
-        $wait = $io->ask('How long (seconds) will this take to "process"?', 5);
+        $wait = rand(2, 5);
 
         // Simulate validation
         sleep($wait);
 
-        $success = $io->ask('Was this "process" completed?', true);
-        $success = (bool) $success;
+        $success = rand(0, 100) > 3;
 
         if ($success) {
             $io->success('Sending acknowledgement!');

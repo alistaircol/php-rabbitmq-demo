@@ -44,7 +44,8 @@ class JobsFileValidationProducerCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
-        $fileId = $io->ask('What is the file id?', uniqid());
+        $fileId = uniqid();
+        $io->writeln('Publishing message for file: ' . $fileId);
 
         $message = $this->context->createMessage(
             json_encode([
