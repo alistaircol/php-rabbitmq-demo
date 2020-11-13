@@ -1,6 +1,6 @@
 Brief interactive demo with RabbitMQ and PHP publisher/producer and subscriber/consumer.
 
-For more background: https://ac93.uk/articles/php-message-pubsub-with-rabbitmq/
+For more background: https://ac93.uk/articles/php-enqueue-amqp-lib-rabbitmq/
 
 Go to http://localhost:15672/ for the admin panel and login with `guest:guest`.
 
